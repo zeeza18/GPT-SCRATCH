@@ -174,6 +174,25 @@ Epoch 2/10 - Train Loss: 3.567, Val Loss: 3.489
 
 ## 🌐 Web Application
 
+### Interface Screenshots
+
+#### Full Application View
+![ZEEPT Web Interface](assets/webapp_fullpage.png)
+
+The ZEEPT web interface provides a modern, intuitive platform for interacting with your trained models.
+
+#### Text Generation Interface
+![Text Generation](assets/webapp_generation.png)
+
+Generate text with customizable parameters including temperature, top-k sampling, and token limits. The interface displays generated output in real-time with detailed metrics.
+
+#### Model Evaluation Dashboard
+![Model Evaluation](assets/webapp_evaluation.png)
+
+Evaluate model performance with perplexity calculations and comprehensive metrics tracking.
+
+---
+
 ### API Endpoints
 
 **Generate Text**
