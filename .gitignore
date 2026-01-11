@@ -205,3 +205,14 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# ZEEPT specific
+outputs/
+*.pt
+*.pth
+*.bin
+*.ckpt
+checkpoints/
+data/large_datasets/
+wandb/
+*.ipynb

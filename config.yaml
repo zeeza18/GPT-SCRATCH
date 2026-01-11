@@ -1,0 +1,36 @@
+# ZEEPT Configuration File
+# LLM Training and Evaluation Settings
+
+model:
+  vocab_size: 50257  # GPT-2 vocabulary size
+  embed_dim: 256
+  num_heads: 8
+  num_layers: 6
+  context_length: 256
+  ff_dim: 1024
+  dropout: 0.1
+  qkv_bias: false
+
+training:
+  batch_size: 4
+  num_epochs: 10
+  learning_rate: 0.0005
+  stride: 128
+  device: "cpu"  # "cuda" or "cpu"
+  seed: 42
+
+data:
+  train_file: "data/sample.txt"
+  context_length: 256
+  tokenizer: "gpt2"  # BPE tokenizer model
+
+evaluation:
+  num_prompts: 5
+  max_new_tokens: 50
+  temperature: 0.7
+  top_k: 50
+
+output:
+  base_dir: "outputs"
+  save_checkpoints: true
+  checkpoint_interval: 5

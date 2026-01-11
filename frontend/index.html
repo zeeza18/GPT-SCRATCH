@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZEEPT - LLM Evaluation Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">⚡</div>
+                <h1>ZEEPT</h1>
+            </div>
+            <p class="tagline">Advanced LLM Fine-tuning & Evaluation Platform</p>
+            <div class="status-badge" id="status-badge">
+                <span class="status-dot"></span>
+                <span>Loading...</span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Model Info Card -->
+            <section class="card model-info">
+                <h2>📊 Model Information</h2>
+                <div class="info-grid" id="model-info">
+                    <div class="info-item">
+                        <span class="info-label">Architecture</span>
+                        <span class="info-value">GPT</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Layers</span>
+                        <span class="info-value" id="layers">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Attention Heads</span>
+                        <span class="info-value" id="heads">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Embedding Dim</span>
+                        <span class="info-value" id="embed-dim">-</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Text Generation Section -->
+            <section class="card generation-section">
+                <h2>✨ Text Generation</h2>
+                <p class="section-description">Enter a prompt to generate text using the fine-tuned model</p>
+
+                <div class="form-group">
+                    <label for="prompt">Prompt</label>
+                    <textarea
+                        id="prompt"
+                        placeholder="Enter your prompt here... (e.g., 'Artificial intelligence is')"
+                        rows="3"
+                    ></textarea>
+                </div>
+
+                <div class="controls-row">
+                    <div class="control-group">
+                        <label for="max-tokens">Max Tokens: <span id="max-tokens-value">50</span></label>
+                        <input type="range" id="max-tokens" min="10" max="200" value="50">
+                    </div>
+                    <div class="control-group">
+                        <label for="temperature">Temperature: <span id="temperature-value">0.7</span></label>
+                        <input type="range" id="temperature" min="0" max="2" step="0.1" value="0.7">
+                    </div>
+                    <div class="control-group">
+                        <label for="top-k">Top-K: <span id="top-k-value">50</span></label>
+                        <input type="range" id="top-k" min="1" max="100" value="50">
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn btn-primary" id="generate-btn">
+                        <span class="btn-text">Generate Text</span>
+                        <span class="btn-loader" style="display: none;">⌛</span>
+                    </button>
+                    <button class="btn btn-secondary" id="example-btn">Use Example</button>
+                </div>
+
+                <div class="output-section" id="generation-output" style="display: none;">
+                    <h3>Generated Text</h3>
+                    <div class="output-text" id="generated-text"></div>
+                    <div class="output-meta">
+                        <span>Tokens: <strong id="gen-tokens">-</strong></span>
+                        <span>Temperature: <strong id="gen-temp">-</strong></span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Evaluation Section -->
+            <section class="card evaluation-section">
+                <h2>📈 Model Evaluation</h2>
+                <p class="section-description">Evaluate text and calculate perplexity metrics</p>
+
+                <div class="form-group">
+                    <label for="eval-text">Text to Evaluate</label>
+                    <textarea
+                        id="eval-text"
+                        placeholder="Enter text to evaluate..."
+                        rows="4"
+                    ></textarea>
+                </div>
+
+                <button class="btn btn-primary" id="evaluate-btn">
+                    <span class="btn-text">Evaluate Text</span>
+                    <span class="btn-loader" style="display: none;">⌛</span>
+                </button>
+
+                <div class="output-section" id="evaluation-output" style="display: none;">
+                    <h3>Evaluation Results</h3>
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <span class="metric-label">Perplexity</span>
+                            <span class="metric-value" id="perplexity-value">-</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-label">Tokens</span>
+                            <span class="metric-value" id="eval-tokens">-</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Training Metrics -->
+            <section class="card metrics-section">
+                <h2>🎯 Training Metrics</h2>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <span class="metric-label">Training Loss</span>
+                        <span class="metric-value">1.234</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-label">Validation Loss</span>
+                        <span class="metric-value">1.456</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-label">Epochs</span>
+                        <span class="metric-value">10</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-label">Parameters</span>
+                        <span class="metric-value">15.2M</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>ZEEPT v1.0.0 - Advanced LLM Evaluation Platform</p>
+            <p>Powered by FastAPI, PyTorch, and Transformers</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
