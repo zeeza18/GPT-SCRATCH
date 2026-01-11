@@ -216,3 +216,4 @@ checkpoints/
 data/large_datasets/
 wandb/
 *.ipynb
+.claude/
